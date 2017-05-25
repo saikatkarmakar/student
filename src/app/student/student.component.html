@@ -1,3 +1,21 @@
-<p>
-  student works!
-</p>
+<div class="card">
+  <div class="card-header text-center">
+
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/student" routerLinkActive="active">Student List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/student/new" routerLinkActive="active">New</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-block">
+    <ul class="list-group">
+      <li class="list-group-item justify-content-between" *ngFor="let student of students">
+        {{student.name}}
+        <span class="badge badge-default badge-pill">{{student.id}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
