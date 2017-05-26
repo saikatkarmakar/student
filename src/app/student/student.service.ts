@@ -4,12 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-export class Student {
-  constructor(
-    public id: number,
-    public name: string
-  ) { }
-}
+import { Student } from './student.model';
 
 @Injectable()
 export class StudentService {

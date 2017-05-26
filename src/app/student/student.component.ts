@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Student, StudentService } from './student.service';
+import { Router } from '@angular/router';
+
+import { Student } from './student.model';
+import { StudentService } from './student.service';
 
 @Component({
   selector: 'app-student',
@@ -9,10 +12,15 @@ import { Student, StudentService } from './student.service';
 })
 export class StudentComponent implements OnInit {
 
-  constructor(private studentService: StudentService) { }
-  students: Student[];
+  constructor(
+    private studentService: StudentService,
+    private router: Router  
+  ) { }
+  students: Student[];  
+  student: Student;
 
   ngOnInit() {
+    console.log(this.student);
     this.studentService
       .getStudents()
       .subscribe(
@@ -21,6 +29,14 @@ export class StudentComponent implements OnInit {
           console.log(err);
         }
       );
+  }
+
+  saveStudent() {
+    console.log(this.student);
+  }
+
+  showDetails(student) {
+    this.router.navigate(['/student', student.id]);
   }
 
 }
