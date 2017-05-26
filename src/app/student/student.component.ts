@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Student } from './student.model';
 import { StudentService } from './student.service';
@@ -14,10 +15,23 @@ export class StudentComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
-    private router: Router  
-  ) { }
+    private router: Router,
+    private fb: FormBuilder
+  ) { 
+    this.createForm();
+  }
   students: Student[];  
   student: Student;
+
+  studentForm: FormGroup;
+
+  createForm() {
+    this.studentForm = this.fb.group({
+      fname: ['', Validators.required],
+      lname: '',
+      address: ''
+    });
+  }
 
   ngOnInit() {
     console.log(this.student);

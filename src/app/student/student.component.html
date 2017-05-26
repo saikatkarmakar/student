@@ -5,18 +5,18 @@
         Add Student
       </div>
       <div class="card-block">
-        <form #studentForm="ngForm" (ngSubmit)="saveStudent()">
+        <form (ngSubmit)="saveStudent()" [formGroup]="studentForm" novalidate>
           <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" class="form-control" id="fname" placeholder="Enter First Name" [(ngModel)]="student.fname" required>
+            <label>First Name
+            <input class="form-control" placeholder="Enter First Name" formControlName="fname"></label>
           </div>
           <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" [(ngModel)]="student.lname">
+            <label>Last Name
+            <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lname"></label>
           </div>
           <div class="form-group">
-            <label for="address">Address</label>
-            <textarea class="form-control" id="address" rows="3" [(ngModel)]="student.address"></textarea>
+            <label>Address
+            <textarea class="form-control" rows="3" formControlName="address"></textarea></label>
           </div>
           <div class="form-check">
             <label class="form-check-label">
@@ -26,6 +26,8 @@
           </div>
           <button type="submit" class="btn btn-primary" [disabled]="!studentForm.valid">Save</button>
         </form>
+        <p>Form value: {{ studentForm.value | json }}</p>
+        <p>Form status: {{ studentForm.status | json }}</p>
       </div>
     </div>
   </div>
