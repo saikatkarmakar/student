@@ -7,12 +7,14 @@ import { routing, routingComponents } from './app.routing';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { StudentModule } from './student/student.module';
+import { HighlightDirective } from './main/highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    routingComponents
+    routingComponents,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

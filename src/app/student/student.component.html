@@ -38,7 +38,7 @@
       </div>
       <div class="card-block">
         <ul class="list-group">
-          <li class="list-group-item justify-content-between" *ngFor="let student of students" (click)="showDetails(student)">
+          <li class="list-group-item justify-content-between" *ngFor="let student of students" (click)="showDetails(student)" appHighlight>
             {{student.fname}}
             <span class="badge badge-default badge-pill">{{student.id}}</span>
           </li>

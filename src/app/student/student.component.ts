@@ -23,7 +23,7 @@ export class StudentComponent implements OnInit {
   students: Student[];  
   student: Student;
 
-  studentForm: FormGroup;
+  studentForm: FormGroup;  
 
   createForm() {
     this.studentForm = this.fb.group({
